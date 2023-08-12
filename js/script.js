@@ -9,14 +9,13 @@ const WEATHER_APIKEY = 'e732a92c66574d856b927e390c09674e',
       windWeather = document.querySelector('.card__weather-wind'),
       iconWeather = document.querySelector('.card__weather-icon');
 
-
+      loader = document.querySelector('.card__weather');
 //! SEARCHING AND DISPLAYING WEATHER
 function searchWeather(city) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${WEATHER_APIKEY}`)
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?q=Poznan&units=metric&appid=${WEATHER_APIKEY}`)
     .then((response) => {
         if (!response.ok) {
-            alert('Wheather is not found');
+            alert(`Incorrect city - ${city}`);
         }
         return response.json();
     })
@@ -36,14 +35,16 @@ function showWeather(data) {
     windWeather.innerText = `Wind speed: ${speed} km/h`;
     iconWeather.src = `https://openweathermap.org/img/wn/${icon}.png`;
 
+    loader.classList.remove('loading')
 
+    document.body.style.background = "url('https://source.unsplash.com/2048x1080/?" + name + "') center center/cover no-repeat";
 }
 function search() {
     searchWeather(searchBar.value);
 }
 
 
-//! BTN
+//! BTN KEYUP
 searchBar.addEventListener('keyup', function(event) {
     if (event.key == 'Enter') {
         search();
