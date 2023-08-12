@@ -37,7 +37,7 @@ function showWeather(data) {
 
     loader.classList.remove('loading')
 
-    document.body.style.background = "url('https://source.unsplash.com/2048x1080/?" + name + "') center center/cover no-repeat";
+    document.body.style.background = "url('https://source.unsplash.com/2048x1080/?" + name + "&city') center center/cover no-repeat";
 }
 function search() {
     searchWeather(searchBar.value);
