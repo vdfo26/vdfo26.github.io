@@ -1,1 +1,139 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Weather App</title><meta name="title" content="My portfolio"><meta name="description" content="Here you can see my works and learn more about me"><!-- Favicon  --><link rel="apple-touch-icon" sizes="57x57" href="icons/favicon//apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="icons/favicon//apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="icons/favicon//apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="icons/favicon//apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="icons/favicon//apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="icons/favicon//apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="icons/favicon//apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="icons/favicon//apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="icons/favicon//apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="icons/favicon//android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="icons/favicon//favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="icons/favicon//favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="icons/favicon//favicon-16x16.png"><link rel="manifest" href="icons/favicon//manifest.json"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="icons/favicon//ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body><section class="card"><div class="card__search"><input type="text" class="card__search-input" placeholder="Ex. Kyiv.."> <button class="card__search-btn"><svg width="30px" height="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none"><path stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M28 27l-7.5-7.5"/><circle r="9" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="matrix(-1 0 0 1 14 13)"/></svg></button></div><div class="card__weather loading"><div class="card__weather-city">Weather in Poznan</div><h1 class="card__weather-temp">25.5 °C</h1><div class="card__weather-wrapper"><img src="" alt="openweather icon" class="card__weather-icon"><div class="card__weather-descr">Cloudly</div></div><div class="card__weather-humidity">Humidity: 91%</div><div class="card__weather-wind">Wind speed: 42 km/h</div></div><div class="card__contacts"><a href="https://github.com/volodymyrfilon" class="card__contacts-link"><img src="icons/contacts/github.png" alt="github" class="card__contacts-link-img"> </a><a href="https://www.linkedin.com/in/volodymyr-filon/" class="card__contacts-link"><img src="icons/contacts/linkedin.png" alt="linkedin" class="card__contacts-link-img"></a></div></section><script src="js/script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+    <meta name="title" content="My portfolio">
+    <meta name="description" content="Here you can see my works and learn more about me">
+
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+
+  <body>
+    <nav class="nav">
+      <a class="nav__logo" href="/">
+        <img class="nav__logo-img" src="icons/assets/logo/logo-black.png" alt="logo">
+      </a>
+      <div class="nav__links">
+        <a href="#" class="btn btn-signin nav__links-signin">Sign in</a>
+        <a href="#" class="btn btn-signup nav__links-signup">Sign up</a>
+      </div>
+    </nav>
+
+    <aside class="aside closed">
+      <div class="aside__wrapper aside__wrapper-start">
+        <div id="themeSwitcher" href="" class="aside__item-link">
+          <img src="icons/aside/sun.svg" alt="icoTheme">
+          <div class="aside__item-text">Light Mode</div>
+          <span>Light Mode</span>
+        </div>
+      </div>
+      <div class="aside__wrapper aside__wrapper-center">
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoNews.png" alt="icoNews">
+          <div class="aside__item-text">News</div>
+          <span>News</span>
+        </a>
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoTask.png" alt="icoTask">
+          <div class="aside__item-text">Task Manager</div>
+          <span>Task Manager</span>
+        </a>
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoCalendar.png" alt="icoCalendar">
+          <div class="aside__item-text">Calendar</div>
+          <span>Calendar</span>
+        </a>
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoTimer.png" alt="icoTimer">
+          <div class="aside__item-text">Focus Timer</div>
+          <span>Focus Timer</span>
+        </a>
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoStat.png" alt="icoStat">
+          <div class="aside__item-text">Statistics</div>
+          <span>Statistics</span>
+        </a>
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoWeather.png" alt="icoWeather">
+          <div class="aside__item-text">Weather</div>
+          <span>Weather</span>
+        </a>
+      </div>
+      <div class="aside__wrapper aside__wrapper-end">
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoSettings.png" alt="icoSettings">
+          <div class="aside__item-text">Settings</div>
+          <span>Settings</span>
+        </a>
+        <a href="" class="aside__item-link">
+          <img src="icons/aside/icoLogout.png" alt="icoLogout">
+          <div class="aside__item-text">Log Out</div>
+          <span>Log Out</span>
+        </a>
+      </div>
+      <div class="aside__swipe">
+        <img src="icons/aside/arrowRight.png" alt="swipeArrow" class="aside__swipe-img">
+      </div>
+    </aside>
+
+    <section class="weather">
+      <div class="weather__search">
+        <input type="text" class="weather__search-input" placeholder="Ex. Kyiv..">
+        <button class="weather__search-btn">
+          <svg width="30px" height="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M28 27l-7.5-7.5"/>
+            <circle r="9" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="matrix(-1 0 0 1 14 13)"/>
+          </svg>
+        </button>
+      </div>
+      <div class="weather__display">
+        <div class="weather__display-city">Weather in Poznan</div>
+            <h1 class="weather__display-temp">25.5°C</h1>
+            <div class="weather__display-wrapper">
+                <img src="icons/weather/regular-weather.png" alt="openweather icon" class="weather__display-icon">
+                <div class="weather__display-descr">Cloudly</div>
+            </div>
+            <div class="weather__display-humidity">Humidity: 91%</div>
+            <div class="weather__display-wind">Wind speed: 42 km/h</div>
+      </div>
+    </section>
+
+
+    <!-- <section class="card">
+        <div class="card__search">
+            <input type="text" class="card__search-input" placeholder="Ex. Kyiv..">
+            <button class="card__search-btn">
+                <svg width="30px" height="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M28 27l-7.5-7.5"/>
+                    <circle r="9" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="matrix(-1 0 0 1 14 13)"/>
+                  </svg>
+            </button>
+        </div>
+        <div class="card__weather loading">
+            <div class="card__weather-city">Weather in Poznan</div>
+            <h1 class="card__weather-temp">25.5 °C</h1>
+            <div class="card__weather-wrapper">
+                <img src="" alt="openweather icon" class="card__weather-icon">
+                <div class="card__weather-descr">Cloudly</div>
+            </div>
+            <div class="card__weather-humidity">Humidity: 91%</div>
+            <div class="card__weather-wind">Wind speed: 42 km/h</div>
+        </div>
+        <div class="card__contacts">
+            <a href="https://github.com/volodymyrfilon" class="card__contacts-link">
+                <img src="icons/contacts/github.png" alt="github" class="card__contacts-link-img">
+            </a>
+            <a href="https://www.linkedin.com/in/volodymyr-filon/" class="card__contacts-link">
+                <img src="icons/contacts/linkedin.png" alt="linkedin" class="card__contacts-link-img">
+            </a>
+        </div>
+    </section> -->
+
+
+
+    <script src="js/script.js"></script>
+  </body>
+  </html>
