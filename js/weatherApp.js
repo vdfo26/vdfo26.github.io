@@ -1,16 +1,19 @@
+import { createDailyCards } from "./modules/createForecastWeatherCards.js";
 import { startLoadingState, endLoadingState } from "./modules/setLoadingState.js";
-import { fetchCurrWeatherData } from './modules/fetchCurrWeatherData.js';
 import { handleError } from './modules/handleError.js';
+import { fetchCurrWeatherData } from './modules/fetchCurrWeatherData.js';
+import { fetchForecastWeatherData } from "./modules/fetchForecastWeatherData.js";
+
 
 //! ============= ASIDE CLOSE/OPEN =============
-const asideBar = document.querySelector('.aside'),
-  asideCloseBtn = asideBar.querySelector('.aside__swipe'),
-  asideCloseBtnImg = asideCloseBtn.querySelector('.aside__swipe-img'),
-  asideLogoImg = asideBar.querySelector('.aside__logo-img');
+const asideBar = document.querySelector('.aside');
+const asideCloseBtn = asideBar.querySelector('.aside__swipe');
+const asideCloseBtnImg = asideCloseBtn.querySelector('.aside__swipe-img');
+const asideLogoImg = asideBar
 
 asideCloseBtn.addEventListener('click', () => {
   asideBar.classList.toggle('closed');
-  
+
   //? ====== asideCloseBtnImg & asideLogoImg changing ======
   if (asideBar.classList.contains('closed')) {
     asideCloseBtnImg.src = "icons/aside/arrowRight.png";
@@ -24,17 +27,20 @@ asideCloseBtn.addEventListener('click', () => {
 
 
 
-const API_KEY = 'e732a92c66574d856b927e390c09674e',
-  searchBar = document.querySelector('.weather__search-input'),
-  searchBtn = document.querySelector('.weather__search-btn'),  
-  locationBtn = document.querySelector('.weather__location-btn');
 
+const API_KEY = 'e732a92c66574d856b927e390c09674e';
+const searchBar = document.querySelector('.weather__search-input');
+const searchBtn = document.querySelector('.weather__search-btn');
+const locationBtn = document.querySelector('.weather__location-btn');
+
+// createHourlyCards();
+createDailyCards();
 
 const fetchFullWeatherData = async (data) => {
   try {
     await startLoadingState();
     await fetchCurrWeatherData(data, API_KEY);
-    // await weatherForecastData(data, API_KEY);
+    await fetchForecastWeatherData(data, API_KEY);
     await endLoadingState();
   } catch (error) {
     if (error.message === "Failed to fetch") {
@@ -50,14 +56,6 @@ const fetchFullWeatherData = async (data) => {
 
 
 
-
-
-
-
-
-
-
-  
 //* ========== getting user location to get CURRENT weather ==========
 const getUserLocation = async () => {
   const successCallback = async (position) => {
@@ -75,8 +73,9 @@ const getUserLocation = async () => {
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
 locationBtn.addEventListener("click", getUserLocation);
-// getUserLocation();
-fetchFullWeatherData("Kyiv", API_KEY);
+getUserLocation();
+// fetchFullWeatherData("Kyiv", API_KEY);
+
 
 
 
@@ -86,16 +85,14 @@ function search() {
   fetchFullWeatherData(formatedCity, API_KEY);
 }
 
-
 //* ========== seaching wheather btns keyups ==========
-searchBtn.addEventListener('click', search); 
-searchBar.addEventListener('keyup', function(event) {
-    if (event.key == 'Enter') {
-        search();
-    }
+searchBtn.addEventListener('click', search);
+searchBar.addEventListener('keyup', function (event) {
+  if (event.key == 'Enter') {
+    search();
+  }
 })
 
 
 
 
-  
