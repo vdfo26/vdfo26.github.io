@@ -542,19 +542,22 @@ aside.closed .aside__swipe {
 .weather__search-input {
   padding: 0.5rem 1rem;
   width: 30rem;
-  background: rgba(255, 255, 255, 0.5);
-  color: #404040;
-  font-size: 1.25rem;
+  background: var(--bg);
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--primary);
   border: none;
   border-radius: 1.5rem;
   outline: none;
   transition: 0.2s ease-in-out;
 }
 .weather__search-input:hover {
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--bg);
 }
 .weather__search-input:focus {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--bg);
 }
 .weather__current {
   display: flex;
@@ -754,19 +757,28 @@ aside.closed .aside__swipe {
   transform: scale(0.95);
 }
 
+.weather__forecast-data {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 16px;
+  width: 100%;
+  margin: 0 2rem;
+}
 .weather__forecast-card {
+  width: 258px;
+  height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
   border-radius: 8px;
-  background-color: var(--tertiary);
+  background-color: var(--bg);
 }
-.weather__forecast-card .daily-weather-forecast-datetime {
+.weather__forecast-datetime {
   width: 100%;
   margin-right: 12px;
 }
-.weather__forecast-card .daily-weather-forecast-datetime .daily-weather-forecast-date {
+.weather__forecast-date {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.2;
@@ -774,22 +786,20 @@ aside.closed .aside__swipe {
   color: var(--accent);
   margin-bottom: 6px;
 }
-.weather__forecast-card .daily-weather-forecast-datetime .daily-weather-forecast-time {
+.weather__forecast-time {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 1.2;
   font-weight: 400;
   color: var(--primary);
 }
-.weather__forecast-card .daily-weather-forecast-icon {
-  min-height: 36px;
-  min-width: 36px;
+.weather__forecast-icon {
   height: 36px;
   width: 36px;
   margin-right: 12px;
   margin-left: auto;
 }
-.weather__forecast-card .daily-forecast-weather-details .daily-weather-forecast-temp {
+.weather__forecast-temp {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 1.2;
@@ -797,7 +807,7 @@ aside.closed .aside__swipe {
   color: var(--primary);
   margin-bottom: 6px;
 }
-.weather__forecast-card .daily-forecast-weather-details .daily-weather-forecast-descr {
+.weather__forecast-descr {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.2;
